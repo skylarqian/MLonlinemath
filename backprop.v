@@ -1,20 +1,29 @@
 module backprop #(parameter DATAWIDTH=) (
+    //ifsd.sd sdif,
     input clk,
     input trigger, //when one, we will calculate the real value
     input [DATAWIDTH-1:0] currW0 [8-1:0][2-1:0],
     input [DATAWIDTH-1:0] currb0 [8-1:0],
     input [DATAWIDTH-1:0] currW1 [3-1:0][8-1:0],
     input [DATAWIDTH-1:0] currb1 [3-1:0],
+    input [DATAWIDTH-1:0] inputs [2-1:0],
+    input [DATAWIDTH-1:0] reluout [8-1:0],
     input [2-1:0] predictedstate,
     input [2-1:0] realstate,
-    input [DATAWIDTH-1:0] inputs [2-1:0],
     input [DATAWIDTH-1:0] softmaxout [3-1:0],
-    input [DATAWIDTH-1:0] reluout [8-1:0],
     output reg [DATAWIDTH-1:0] newW0 [8-1:0][2-1:0],
     output reg [DATAWIDTH-1:0] newb0 [9-1:0],
     output reg [DATAWIDTH-1:0] newW1 [3-1:0][8-1:0],
     output reg [DATAWIDTH-1:0] newb1 [3-1:0],
 );
+
+
+
+
+
+
+
+
 reg [DATAWIDTH-1:0] dldZ1 [3-1:0][1-1:0];
 
 /*
